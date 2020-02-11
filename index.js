@@ -23,7 +23,9 @@ const main = async () => {
     "npx coverage-percentage ./coverage/lcov.info --lcov"
   ).toString();
   coveragePercentage = parseFloat(coveragePercentage).toFixed(2);
+  console.log('--------------- codeCoverage ------------')
   console.log(codeCoverage)
+  console.log('--------------- codeCoverage ------------')
   const commentBody = `<p>Total Coverage is: <code>${coveragePercentage}</code></p>
 <details><summary>Coverage report</summary>
 <p>
