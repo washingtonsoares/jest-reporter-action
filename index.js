@@ -7,9 +7,6 @@ const main = async () => {
   const repoOwner = context.repo.owner;
   const githubToken = core.getInput("github-token");
   const testCommand = core.getInput("test-command") || "npx jest --coverage";
-  console.log(' ================ TEST COMMAND ===================')
-  console.log(core.getInput("test-command"))
-  console.log(' ================ TEST COMMAND ===================')
 
   const githubClient = new GitHub(githubToken);
   const commitPRs = await githubClient.repos.listPullRequestsAssociatedWithCommit(
@@ -26,9 +23,6 @@ const main = async () => {
     "npx coverage-percentage ./coverage/lcov.info --lcov"
   ).toString();
   coveragePercentage = parseFloat(coveragePercentage).toFixed(2);
-  console.log('--------------- codeCoverage ------------')
-  console.log(codeCoverage)
-  console.log('--------------- codeCoverage ------------')
   const commentBody = `<p>Total Coverage is: <code>${coveragePercentage}</code></p>
 <details><summary>Coverage report</summary>
 <p>
