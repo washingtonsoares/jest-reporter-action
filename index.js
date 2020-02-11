@@ -6,7 +6,7 @@ const main = async () => {
   const repoName = context.repo.repo;
   const repoOwner = context.repo.owner;
   const githubToken = core.getInput("github-token");
-  const testCommand = core.getInput("test-command") || "npx jest";
+  const testCommand = core.getInput("test-command") || "npx jest --coverage";
 
   const githubClient = new GitHub(githubToken);
   const commitPRs = await githubClient.repos.listPullRequestsAssociatedWithCommit(
